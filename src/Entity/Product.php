@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
@@ -32,6 +34,14 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPrice::class, orphanRemoval: true)]
+    private Collection $productPrices;
+
+    public function __construct()
+    {
+        $this->productPrices = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -106,6 +116,36 @@ class Product
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProductPrice>
+     */
+    public function getProductPrices(): Collection
+    {
+        return $this->productPrices;
+    }
+
+    public function addProductPrice(ProductPrice $productPrice): static
+    {
+        if (!$this->productPrices->contains($productPrice)) {
+            $this->productPrices->add($productPrice);
+            $productPrice->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductPrice(ProductPrice $productPrice): static
+    {
+        if ($this->productPrices->removeElement($productPrice)) {
+            // set the owning side to null (unless already changed)
+            if ($productPrice->getProduct() === $this) {
+                $productPrice->setProduct(null);
+            }
+        }
 
         return $this;
     }
