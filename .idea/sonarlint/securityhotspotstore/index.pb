@@ -11,3 +11,13 @@ D
 src/Entity/Brand.php,4\e\4eb56e9b0f554e5d19ea925badcf67e108c124e9
 G
 src/Entity/Category.php,c\8\c85245800948ffb0569f65af912d0e2d467f18f3
+D
+src/Entity/Order.php,3\8\3884f7ea27bbdee89b90c1a8504a9ef387c02daf
+=
+composer.json,3\9\3957b91a0d8450cea0115cfd5af69eac90d75897
+Q
+!src/Controller/HomeController.php,a\d\ad8b439416d1e02614f47c5b471c7c4e587dca82
+N
+templates/home/index.html.twig,9\e\9edb3d1e95dfc79e011bc28bcd374833bdbae38a
+G
+src/Entity/Customer.php,8\9\895797911b519610658c220c542138a3660e53f5
