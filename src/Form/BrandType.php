@@ -13,8 +13,6 @@ class BrandType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
 
@@ -22,6 +20,9 @@ class BrandType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Brand::class,
+            'attr' => [
+                'novalidate' => 'novalidate', // comment me to reactivate the html5 validation!  🚥
+            ]
         ]);
     }
 }
