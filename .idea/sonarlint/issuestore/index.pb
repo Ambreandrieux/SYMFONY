@@ -21,3 +21,5 @@ N
 templates/home/index.html.twig,9\e\9edb3d1e95dfc79e011bc28bcd374833bdbae38a
 G
 src/Entity/Customer.php,8\9\895797911b519610658c220c542138a3660e53f5
+Y
+)src/Controller/RegistrationController.php,b\6\b6a5dce1eac6107738aa6c9b363b605aa2315b2c
