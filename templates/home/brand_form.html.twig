@@ -1,0 +1,16 @@
+{# ./templates/home/brand_form.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon formulaire{% endblock %}
+
+{% block body %}
+    <h1>Mon formulaire</h1>
+
+    {{ form_start(leFormDuController) }}
+        {{ form_row(leFormDuController.name) }}
+        {{ form_row(leFormDuController.createdAt) }}
+        {{ form_row(leFormDuController.updatedAt) }}
+        <button type="submit">Enregistrer</button>
+    {{ form_end(leFormDuController) }}
+{% endblock %}
