@@ -24,8 +24,8 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/brand_form', name: 'app_brand_form')]
-    #[Route('/brand_form/edit/{brand}', name: 'app_brand_form_edit')]
+    #[Route('/brand/new', name: 'app_brand_form')]
+    #[Route('/brand/edit/{brand}', name: 'app_brand_form_edit')]
     public function brandForm(
         EntityManagerInterface $em,
         Request $request,
