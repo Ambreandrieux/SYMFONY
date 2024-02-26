@@ -1,0 +1,17 @@
+{# Permet d'étendre le template de base #}
+{% extends 'base.html.twig' %}
+
+{# Permet de remplacer le block BODY du template de base #}
+{% block body %}
+    {# Créé le formulaire (<form>) #}
+    {{ form_start(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.category) }}
+
+        {# Ajoute le bouton "Valider" pour soumettre le formulaire #}
+        <button type="submit">Valider</button>
+
+    {# Génére la fin du formulaire et ferme le </form> #}
+    {{ form_end(form) }}
+{% endblock %}

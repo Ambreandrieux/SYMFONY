@@ -89,3 +89,15 @@ B
 public/index.php,0\e\0e61f67641b441bb3ee38e903c594d99cafa14b4
 ;
 bin/console,2\b\2b22d59fcdaf24a6d2536513e514e77fc83391a3
+P
+ src/DataFixtures/AppFixtures.php,b\d\bd40e5504ff9d25586c516537316c24981df19f7
+I
+src/Form/CategoryType.php,5\f\5f8bf657e67f620e181ffa4f3acf86be6ac5fa33
+U
+%src/Controller/CategoryController.php,7\3\73d80620e1fbae6d9bcb8a83110ed4045d319d16
+Q
+!templates/category/form.html.twig,c\9\c9a4ec0a67f0af955b1f7ed556058ea301c59707
+=
+composer.lock,c\3\c3262e2a0879195bd6a727e90f768bc85ad79ffd
+<
+symfony.lock,e\1\e17766cca3407ba620a8cef1c14d37208a74e8a4
