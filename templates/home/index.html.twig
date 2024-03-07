@@ -4,9 +4,13 @@
 
 {% block body %}
     <a href="{{ path('app_brand_form') }}">New brand</a>
+
+    {# "brands" = tableau #}
+    {# "brand" = item #}
     <ul>
     {% for brand in brands %}
         <li>
+            {# "homecontroler" (fichier) = appelle ce fichier #}
             <a href="{{ path('app_brand_form_edit', {brand: brand.id}) }}">
                 {{ brand.name }}
             </a>

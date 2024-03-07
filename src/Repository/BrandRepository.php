@@ -14,6 +14,8 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Brand[]    findAll()
  * @method Brand[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
+
+// par défaut reprend toutes les méthodes ci dessus
 class BrandRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)

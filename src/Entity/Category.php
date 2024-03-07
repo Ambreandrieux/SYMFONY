@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+// automatisation : pour dire à la doctrine va voir ce qu'il va se passer
+#[ORM\HasLifecycleCallbacks]
 class Category
 {
     #[ORM\Id]
@@ -32,7 +34,24 @@ class Category
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class, orphanRemoval: true)]
     private Collection $products;
-
+	
+	// AUTOMATISATION
+	#[ORM\PrePersist]
+	public function prePersist(): void
+	{
+		$now = new \DateTimeImmutable();
+		$this
+			->setCreatedAt($now)
+			->setUpdatedAt($now);
+	}
+	
+	#[ORM\PreUpdate]
+	public function preUpdate(): void
+	{
+		$this->setUpdatedAt(new \DateTimeImmutable());
+	}
+	// AUTOMATISATION
+	
     public function __construct()
     {
         $this->parentCategory = new ArrayCollection();

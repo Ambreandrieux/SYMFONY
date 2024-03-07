@@ -8,7 +8,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+// "#" attribu
+// entity : déclare la structure de la table
+// repository : déclare des requêtes
 #[ORM\Entity(repositoryClass: BrandRepository::class)]
+// j'ai besoin d'un cycle de vie
+// action sur type brand effectuer action entité brand (pré updated, pré presiste, post presiste)
+// vérifier dans le code car il y a une fonction
+// automatisation createdAt & updatedAt
 #[ORM\HasLifecycleCallbacks]
 class Brand
 {
@@ -29,11 +36,17 @@ class Brand
 
     #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Product::class, orphanRemoval: true)]
     private Collection $products;
-
+	
+	// avant d'insérer
+	// définir les valeurs date de création, date de mise à jour
+	// AUTOMATISATION
     #[ORM\PrePersist]
+    // ": void" = renvoie rien
     public function prePersist(): void
     {
-        $now = new \DateTimeImmutable();
+	    // "DateTimeImmutable" = changera jamais, avoir un référenciel unique (fuseau horaire)
+	    // EX : toutes les heures stocké dans les heures de Paris
+	    $now = new \DateTimeImmutable();
         $this
             ->setCreatedAt($now)
             ->setUpdatedAt($now);
@@ -44,7 +57,8 @@ class Brand
     {
         $this->setUpdatedAt(new \DateTimeImmutable());
     }
-
+	// AUTOMATISATION
+	
     public function __construct()
     {
         $this->products = new ArrayCollection();
