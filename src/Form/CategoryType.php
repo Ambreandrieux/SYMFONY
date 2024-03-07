@@ -16,7 +16,11 @@ class CategoryType extends AbstractType
             ->add('name')
             ->add('category', EntityType::class, [
                 'class' => Category::class,
+<<<<<<< HEAD
 				'choice_label' => 'name',
+=======
+                'choice_label' => 'name',
+>>>>>>> 2d2348a3201b44234af38d1d3b1e062c5329b35c
             ])
         ;
     }
